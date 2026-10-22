@@ -4680,8 +4680,6 @@ function openDetailModal(drugId) {
     if (priceHighlight) {
         priceHighlight.innerHTML = `
             <span class="text-xl sm:text-2xl font-extrabold text-rose-600">${chosenSize.price}</span>
-            <span class="text-xs sm:text-sm text-slate-400 line-through">${formatKip(origPriceNum)}</span>
-            <span class="px-2 py-0.5 rounded-md bg-rose-600 text-white text-xs font-extrabold">-5%</span>
         `;
     }
 
@@ -5025,7 +5023,6 @@ function renderCheckoutModal() {
                 <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
                     <div class="relative h-28 bg-slate-100 cursor-pointer" onclick="closeCartModal(); openDetailModal('${d.id}')">
                         <img src="${d.image}" class="w-full h-full object-contain p-1.5">
-                        <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-rose-600 text-white text-[9px] font-extrabold">-5%</span>
                     </div>
                     <div class="p-2.5">
                         <h5 class="font-bold text-slate-900 text-xs truncate">${d.name}</h5>

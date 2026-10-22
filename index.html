@@ -46,22 +46,21 @@
                         <i class="fa-solid fa-notes-medical"></i>
                     </div>
                     <div class="min-w-0">
-                        <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-1.5 flex-wrap">
                             <h1 class="font-extrabold text-sm sm:text-lg text-rose-700 truncate">ນິຍົມ ການກະເສດ</h1>
                             <span class="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
                                 <i class="fa-solid fa-check-circle"></i> ພ້ອມສົ່ງ
                             </span>
+                            <button id="calc-toggle-btn" class="inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white transition shadow-sm shrink-0 active:scale-95">
+                                <i class="fa-solid fa-calculator text-[10px] sm:text-xs"></i>
+                                <span>ຄິດໄລ່ cc</span>
+                            </button>
                         </div>
                         <p id="header-subtitle" class="text-[10px] sm:text-xs text-slate-500 truncate">ສັ່ງຊື້ຢາສັດອອນລາຍດ້ວຍຕົວເອງ & ຄູ່ມືປິ່ນປົວຄົບວົງຈອນ</p>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-                    <button id="calc-toggle-btn" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-teal-600 text-white hover:bg-teal-700 transition shadow-sm">
-                        <i class="fa-solid fa-calculator"></i>
-                        <span id="calc-btn-label" class="hidden md:inline">ຄິດໄລ່ໂດສຢາ (cc)</span>
-                        <span class="md:hidden">ຄິດໄລ່ cc</span>
-                    </button>
                     <!-- Language toggle removed (Lao only) - hidden for JS compatibility -->
                     <div class="hidden">
                         <button id="lang-lo"></button>
@@ -91,42 +90,9 @@
                 </button>
             </div>
         </div>
-        </div>
 
         <!-- VIEW 1: DRUGS STORE & CLINICAL DATABASE -->
         <div id="view-drugs">
-            <!-- Feature 1: Symptom-Based Quick Shopping Bar (2-Row Horizontal Swipe on Mobile) -->
-            <div class="mb-3.5 sm:mb-4 bg-gradient-to-r from-teal-50 via-emerald-50/70 to-amber-50/50 p-3 sm:p-4 rounded-2xl border border-teal-200/80 shadow-sm">
-                <div class="flex items-center justify-between gap-2 mb-2">
-                    <div class="flex items-center gap-1.5 min-w-0">
-                        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-teal-600 text-white flex items-center justify-center text-xs shrink-0">
-                            <i class="fa-solid fa-stethoscope"></i>
-                        </span>
-                        <h3 id="symptom-bar-title" class="text-[11px] sm:text-sm font-extrabold text-slate-900 truncate">
-                            ເລືອກຢາຕາມ "ອາການປ່ວຍທີ່ເຫັນ" (ປັດຊ້າຍ-ຂວາເພື່ອເລືອກ)
-                        </h3>
-                    </div>
-                    <button onclick="switchMainTab('diseases')" class="shrink-0 text-[10px] sm:text-[11px] font-bold text-teal-800 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded-lg border border-teal-300 transition">
-                        <i class="fa-solid fa-virus mr-0.5"></i>ເບິ່ງ 34 ໂຣກ →
-                    </button>
-                </div>
-                <!-- 2-row horizontal scroll on mobile, flex-wrap on desktop -->
-                <div id="symptom-pills-container" class="grid grid-rows-2 grid-flow-col auto-cols-max gap-1.5 overflow-x-auto no-scrollbar pb-1 sm:flex sm:flex-wrap sm:gap-2">
-                    <!-- Populated by app.js -->
-                </div>
-                <!-- Dynamic Symptom Advice Box -->
-                <div id="symptom-advice-box" class="hidden mt-2.5 p-2.5 sm:p-3 rounded-xl bg-white border border-teal-300 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                    <div class="text-xs text-slate-700">
-                        <span class="font-bold text-teal-800" id="symptom-advice-title"></span>
-                        <p id="symptom-advice-desc" class="mt-0.5 text-slate-600 text-[11px] sm:text-xs leading-relaxed"></p>
-                    </div>
-                    <button id="symptom-wa-btn" class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-sm"></i>
-                        <span>ປຶກສາ/ສັ່ງຊຸດຢາອາການນີ້</span>
-                    </button>
-                </div>
-            </div>
-
             <!-- Laocart Style Product Search & Rounded Category Pills (Exact match to video 00:09-00:11) -->
             <div class="mb-4 sm:mb-6 space-y-3">
                 <div class="flex items-center justify-between">
