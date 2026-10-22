@@ -4556,20 +4556,10 @@ function renderDrugGrid() {
                     </div>
 
                     ${sizePillsHtml}
-
-                    <div class="mt-2 pt-1.5 border-t border-slate-100">
-                        <p class="text-[10px] sm:text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                            ${indicationList[0]}
-                        </p>
-                        <div class="mt-1 flex items-center gap-1 text-[10px] text-teal-700 font-semibold truncate">
-                            <i class="fa-solid fa-syringe text-[9px]"></i>
-                            <span class="truncate">${ratioText}</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Laocart Primary Action + Quick Detail/Dose Info -->
+            <!-- Primary Action + Quick Detail/Dose Info -->
             <div class="px-2.5 pb-2.5 pt-0.5 sm:px-4 sm:pb-4 flex flex-col gap-1.5">
                 ${primaryBtnHtml}
                 <div class="flex items-center justify-between gap-1 text-[10px] sm:text-xs pt-0.5">
@@ -4577,8 +4567,9 @@ function renderDrugGrid() {
                         <i class="fa-solid fa-circle-info text-teal-600"></i>
                         <span>ວິທີໃຊ້ & ລາຍລະອຽດ</span>
                     </button>
-                    <button onclick="openCalculator('${drug.id}')" class="text-teal-700 hover:underline font-bold shrink-0">
-                        <i class="fa-solid fa-calculator"></i> cc
+                    <button onclick="openCalculator('${drug.id}')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-700 font-bold border border-teal-200 transition shrink-0">
+                        <i class="fa-solid fa-calculator text-[10px]"></i>
+                        <span>ຄິດໄລ່ cc</span>
                     </button>
                 </div>
             </div>
