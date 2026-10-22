@@ -3698,20 +3698,29 @@ function setLanguage(lang) {
     currentLang = lang;
     const totalDrugs = DRUGS_DATA.length;
     const totalDiseases = DISEASES_DATA.length;
+    const tabDrugsLabel = document.getElementById('tab-drugs-label');
+    const tabBundlesLabel = document.getElementById('tab-bundles-label');
+    const tabDiseasesLabel = document.getElementById('tab-diseases-label');
+    const tabFaqLabel = document.getElementById('tab-faq-label');
+
     if (lang === 'lo') {
-        document.getElementById('lang-lo').className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
-        document.getElementById('lang-th').className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition";
-        document.getElementById('tab-drugs-label').innerText = `ຄັງຢາສັດ (${totalDrugs})`;
-        document.getElementById('tab-bundles-label').innerText = "ຊຸດຢາຈັດເຊັດ (6 ຊຸດ)";
-        document.getElementById('tab-diseases-label').innerText = `ວິນິດໄສ ${totalDiseases} ໂຣກ`;
-        document.getElementById('tab-faq-label').innerText = "ວັກຊີນ, ເບີເຂັມ & FAQ";
+        const langLo = document.getElementById('lang-lo');
+        const langTh = document.getElementById('lang-th');
+        if (langLo) langLo.className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
+        if (langTh) langTh.className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition";
+        if (tabDrugsLabel) tabDrugsLabel.innerText = `ສິນຄ້າທັງໝົດ (${totalDrugs})`;
+        if (tabBundlesLabel) tabBundlesLabel.innerText = "ຊຸດຢາຈັດເຊັດ (6 ຊຸດ)";
+        if (tabDiseasesLabel) tabDiseasesLabel.innerText = `ວິນິດໄສ ${totalDiseases} ໂຣກ`;
+        if (tabFaqLabel) tabFaqLabel.innerText = "ວັກຊີນ, ເບີເຂັມ & FAQ";
     } else {
-        document.getElementById('lang-th').className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
-        document.getElementById('lang-lo').className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition";
-        document.getElementById('tab-drugs-label').innerText = `คลังยาสัตว์ (${totalDrugs})`;
-        document.getElementById('tab-bundles-label').innerText = "ชุดยาจัดเซ็ต (6 ชุด)";
-        document.getElementById('tab-diseases-label').innerText = `วินิจฉัย ${totalDiseases} โรค`;
-        document.getElementById('tab-faq-label').innerText = "วัคซีน, เบอร์เข็ม & FAQ";
+        const langLo = document.getElementById('lang-lo');
+        const langTh = document.getElementById('lang-th');
+        if (langTh) langTh.className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition";
+        if (langLo) langLo.className = "px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition";
+        if (tabDrugsLabel) tabDrugsLabel.innerText = `คลังยาสัตว์ (${totalDrugs})`;
+        if (tabBundlesLabel) tabBundlesLabel.innerText = "ชุดยาจัดเซ็ต (6 ชุด)";
+        if (tabDiseasesLabel) tabDiseasesLabel.innerText = `วินิจฉัย ${totalDiseases} โรค`;
+        if (tabFaqLabel) tabFaqLabel.innerText = "วัคซีน, เบอร์เข็ม & FAQ";
     }
     renderSymptomBar();
     renderDrugGrid();
@@ -4481,7 +4490,7 @@ function renderDrugGrid() {
         }
 
         const isBestSeller = BEST_SELLER_IDS.has(drug.id);
-        const discountBadge = `<span class="px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-extrabold bg-rose-600 text-white shadow-sm">-5%</span>`;
+        const discountBadge = '';
         const bestSellerBadge = isBestSeller
             ? `<span class="px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-extrabold bg-amber-400 text-slate-950 shadow-sm">${I18N[currentLang].bestSeller}</span>`
             : '';
@@ -4492,8 +4501,6 @@ function renderDrugGrid() {
         // Active size & price
         const activeSizeIdx = selectedSizes[drug.id] || 0;
         const chosenSizeObj = (drug.sizes && drug.sizes[activeSizeIdx]) ? drug.sizes[activeSizeIdx] : drug.sizes[0];
-        const salePriceNum = parseKipPrice(chosenSizeObj.price);
-        const origPriceNum = getOriginalPriceKip(salePriceNum);
 
         // Product Image Header (Laocart clean square/rectangular card header)
         const imgHeightClass = mobileGridCols === 1 ? 'h-48 sm:h-48' : 'h-36 sm:h-48';
@@ -4502,7 +4509,6 @@ function renderDrugGrid() {
             <div class="relative ${imgHeightClass} bg-slate-100 border-b border-slate-100 overflow-hidden cursor-pointer" onclick="openDetailModal('${drug.id}')">
                 <img src="${drug.image}" alt="${drug.name}" loading="lazy" class="w-full h-full object-contain p-1.5 sm:p-2.5 group-hover:scale-105 transition-transform duration-300">
                 <div class="absolute top-2 left-2 flex flex-wrap gap-1">
-                    ${discountBadge}
                     ${bestSellerBadge}
                 </div>
                 <div class="absolute top-2 right-2">
@@ -4544,10 +4550,9 @@ function renderDrugGrid() {
                 <div class="p-2.5 sm:p-4">
                     <h3 onclick="openDetailModal('${drug.id}')" class="font-extrabold text-slate-900 text-xs sm:text-base leading-snug group-hover:text-rose-600 transition cursor-pointer line-clamp-1">${drug.name}</h3>
                     
-                    <!-- Laocart Price Row (Bold Rose Price + Crossed-out Original Price) -->
+                    <!-- Clean Price Row -->
                     <div class="mt-1 flex items-baseline gap-1.5 flex-wrap">
                         <span class="text-sm sm:text-base font-extrabold text-rose-600">${chosenSizeObj.price}</span>
-                        <span class="text-[10px] sm:text-xs text-slate-400 line-through">${formatKip(origPriceNum)}</span>
                     </div>
 
                     ${sizePillsHtml}

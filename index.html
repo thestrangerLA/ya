@@ -67,55 +67,10 @@
                         <button id="lang-lo"></button>
                         <button id="lang-th"></button>
                     </div>
-                    <button onclick="openGeneralWhatsApp()" class="inline-flex items-center gap-1.5 px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 transition shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span class="hidden sm:inline">ທັກ WhatsApp</span>
-                        <span class="sm:hidden">ທັກຮ້ານ</span>
-                    </button>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- Store & Clinical Hero Banner -->
-    <section class="bg-gradient-to-r from-slate-900 via-teal-900 to-emerald-900 text-white border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3.5 sm:py-7">
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3.5 sm:gap-6">
-                <div class="max-w-2xl space-y-1.5 sm:space-y-2">
-                    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 text-[10px] sm:text-xs font-semibold">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span id="hero-badge">ສິນຄ້າພ້ອມສົ່ງທຸກລາຍການ • ລົມໂດຍກົງກັບເຈົ້າຂອງຮ້ານຜ່ານ WhatsApp</span>
-                    </div>
-                    <h2 id="hero-title" class="text-base sm:text-2xl font-extrabold tracking-tight leading-snug">
-                        ຮ້ານຂາຍຢາສັດ ນິຍົມ ການກະເສດ — ສິນຄ້າລາຄາໂຮງງານ ພ້ອມຄູ່ມືປິ່ນປົວຄົບວົງຈອນ
-                    </h2>
-                    <p id="hero-desc" class="text-[11px] sm:text-xs text-slate-200 leading-relaxed">
-                        ເບິ່ງຂໍ້ມູນຢາ, ລາຄາ, ວິທີໃຊ້ ➔ ກົດປຸ່ມ <strong class="text-emerald-300">"ທັກ WhatsApp"</strong> ➔ ເຈົ້າຂອງຮ້ານຕອບ & ຈັດສົ່ງທົ່ວປະເທດ (ອະນຸສິດ / ມີໄຊ / ຮຸ່ງອາລຸນ)
-                    </p>
-                </div>
-
-                <!-- 4 Quick Stats -->
-                <div class="grid grid-cols-4 gap-1.5 sm:gap-2.5 shrink-0">
-                    <div onclick="switchMainTab('drugs')" class="cursor-pointer bg-white/10 hover:bg-white/15 active:scale-95 border border-white/15 rounded-xl p-2 sm:p-3 text-center transition">
-                        <div class="text-sm sm:text-xl font-extrabold text-amber-300" id="stat-drug-count">55</div>
-                        <div id="stat-drug-label" class="text-[9px] sm:text-[11px] text-slate-200 font-medium mt-0.5 truncate">ສິນຄ້າພ້ອມສົ່ງ</div>
-                    </div>
-                    <div onclick="switchMainTab('bundles')" class="cursor-pointer bg-amber-500/20 hover:bg-amber-500/30 active:scale-95 border border-amber-400/40 rounded-xl p-2 sm:p-3 text-center transition">
-                        <div class="text-sm sm:text-xl font-extrabold text-amber-200">6 ຊຸດ</div>
-                        <div id="stat-bundle-label" class="text-[9px] sm:text-[11px] text-amber-100 font-medium mt-0.5 truncate">ຊຸດຢາຈັດເຊັດ</div>
-                    </div>
-                    <div onclick="switchMainTab('diseases')" class="cursor-pointer bg-white/10 hover:bg-white/15 active:scale-95 border border-white/15 rounded-xl p-2 sm:p-3 text-center transition">
-                        <div class="text-sm sm:text-xl font-extrabold text-emerald-300" id="stat-disease-count">34 ໂຣກ</div>
-                        <div id="stat-disease-label" class="text-[9px] sm:text-[11px] text-slate-200 font-medium mt-0.5 truncate">ຄູ່ມືປິ່ນປົວ</div>
-                    </div>
-                    <div onclick="openGeneralWhatsApp()" class="cursor-pointer bg-emerald-500/30 hover:bg-emerald-500/40 active:scale-95 border border-emerald-400/50 rounded-xl p-2 sm:p-3 text-center transition">
-                        <div class="text-sm sm:text-xl font-extrabold text-white"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div class="text-[9px] sm:text-[11px] text-emerald-100 font-medium mt-0.5 truncate">ທັກ WhatsApp</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <main class="flex-grow max-w-7xl w-full mx-auto px-2.5 sm:px-6 lg:px-8 py-3.5 sm:py-6">
         
@@ -126,10 +81,6 @@
                     <i class="fa-solid fa-store text-rose-600"></i>
                     <span id="tab-drugs-label">ສິນຄ້າທັງໝົດ (55)</span>
                 </button>
-                <button id="tab-bundles-btn" onclick="switchMainTab('bundles')" class="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition">
-                    <i class="fa-solid fa-boxes-packing text-amber-600"></i>
-                    <span id="tab-bundles-label">ຊຸດຢາຈັດເຊັດ (6 ຊຸດ)</span>
-                </button>
                 <button id="tab-diseases-btn" onclick="switchMainTab('diseases')" class="shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition">
                     <i class="fa-solid fa-stethoscope"></i>
                     <span id="tab-diseases-label">ວິນິດໄສ 34 ໂຣກ</span>
@@ -139,10 +90,7 @@
                     <span id="tab-faq-label">ວັກຊີນ, ເບີເຂັມ & FAQ</span>
                 </button>
             </div>
-            <div class="hidden md:flex text-xs text-slate-500 items-center gap-1.5">
-                <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
-                <span id="header-helper-text">ສົນໃຈຢາໂຕໃດ ກົດ <strong>"ທັກ WhatsApp"</strong> ເພື່ອສອບຖາມ & ສັ່ງຊື້ກັບເຈົ້າຂອງຮ້ານໂດຍກົງ</span>
-            </div>
+        </div>
         </div>
 
         <!-- VIEW 1: DRUGS STORE & CLINICAL DATABASE -->
@@ -266,49 +214,6 @@
                 <p class="text-sm text-slate-400 mt-1">ລອງປ່ຽນຄຳຄົ້ນຫາ ຫຼື ກົດລ້າງຕົວກັ່ນຕອງໝວດໝູ່</p>
             </div>
         </div> <!-- End #view-drugs -->
-
-        <!-- VIEW 1.5 (FEATURE 2): READY-TO-USE TREATMENT BUNDLES -->
-        <div id="view-bundles" class="hidden space-y-6">
-            <div class="bg-gradient-to-r from-amber-700 via-amber-600 to-teal-700 rounded-2xl p-5 text-white shadow-md">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <span class="inline-block px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-bold mb-1.5">
-                            <i class="fa-solid fa-boxes-packing mr-1"></i>ຊຸດຢາຈັດເຊັດພ້ອມປິ່ນປົວ (Complete Treatment Sets)
-                        </span>
-                        <h2 id="bundle-banner-title" class="text-lg sm:text-xl font-extrabold">ຊຸດຢາປິ່ນປົວຕາມອາການ — ຈັດຄົບສູດໂດຍສັດຕະວະແພດ ບໍ່ຕ້ອງຢ້ານຈັດຢາຜິດ</h2>
-                        <p id="bundle-banner-desc" class="text-xs sm:text-sm text-amber-50 mt-1">
-                            ເວລາສັດປ່ວຍຈິງ ການໃຊ້ຢາຂວດດຽວມັກບໍ່ພຽງພໍ — ຊຸດຢາເຫຼົ່ານີ້ຈັບຄູ່ ຢາຂ້າເຊື້ອ + ຢາຫຼຸດໄຂ້ແກ້ປວດ + ວິຕາມິນຟື້ນຟູ ພ້ອມແນະນຳເບີເຂັມສັກຢາຄົບໃນເຊັດດຽວ
-                        </p>
-                    </div>
-                    <button onclick="openConsultWhatsApp()" class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-emerald-800 hover:bg-emerald-50 text-xs font-extrabold shadow-sm transition">
-                        <i class="fa-brands fa-whatsapp text-base text-emerald-600"></i>
-                        <span>ໃຫ້ຮ້ານຈັດຊຸດຢາຕາມງົບ/ອາການ</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Syringe & Needle Reminder Bar -->
-            <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div class="flex items-start sm:items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center text-base shrink-0">
-                        <i class="fa-solid fa-syringe"></i>
-                    </div>
-                    <div class="text-xs text-slate-700">
-                        <h4 class="font-bold text-slate-900 text-sm">ຢ່າລືມ! ທາງຮ້ານມີ "ເຂັມສັກຢາ & ໄຊຣິງຄ໌ (Syringe)" ຄົບທຸກຂະໜາດພ້ອມສົ່ງ</h4>
-                        <p class="mt-0.5 text-slate-600">ງົວ/ຄວາຍ (ເຂັມເບີ 16G, 18G) • ໝູ/ແບ້ (ເຂັມເບີ 18G, 20G) • ລູກສັດ (21G–23G) • ໄກ່/ສັດປີກ (24G–26G) — ສາມາດແຈ້ງເອົາພ້ອມຢາທາງ WhatsApp ໄດ້ເລີຍ!</p>
-                    </div>
-                </div>
-                <button onclick="openWhatsAppCustom('ສະບາຍດີຮ້ານຂາຍຢາສັດ, ຂ້ອຍສົນໃຈສັ່ງຊື້ ເຂັມສັກຢາ ແລະ ໄຊຣິງຄ໌ ພ້ອມກັບຢາສັດ ຂໍເບິ່ງລາຍລະອຽດແດ່')" class="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold transition">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>ສອບຖາມເຂັມ & ໄຊຣິງຄ໌</span>
-                </button>
-            </div>
-
-            <!-- Bundles Grid -->
-            <div id="bundle-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- Populated by app.js -->
-            </div>
-        </div>
 
         <!-- VIEW 2: DISEASE & TREATMENT CLINICAL GUIDE -->
         <div id="view-diseases" class="hidden space-y-4 sm:space-y-6">
@@ -547,28 +452,9 @@
             </div>
         </div>
 
-        <!-- FEATURE 6 & 7: HOW TO ORDER, FAST SHIPPING & FREE VET CONSULTATION VIA WHATSAPP -->
-        <section class="mt-10 pt-8 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <!-- Box 1: Free Symptom Consultation -->
-            <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-5 text-white shadow-md flex flex-col justify-between">
-                <div class="space-y-2">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-bold">
-                        <i class="fa-solid fa-user-doctor"></i> ປຶກສາອາການສັດປ່ວຍຟຣີ!
-                    </span>
-                    <h3 id="consult-box-title" class="text-base sm:text-lg font-extrabold leading-snug">
-                        ບໍ່ແນ່ໃຈວ່າສັດປ່ວຍເປັນໂຣກຫຍັງ? ສົ່ງຮູບ ຫຼື ຄລິບອາການມາໃຫ້ເບິ່ງໄດ້ເລີຍ!
-                    </h3>
-                    <p id="consult-box-desc" class="text-xs text-emerald-50 leading-relaxed">
-                        ຖ່າຍຮູບອາການສັດປ່ວຍ, ຮູບບາດແຜ, ຮູບຂີ້ໄກ່/ຂີ້ໝູ ຫຼື ຄລິບສຽງຫາຍໃຈ ສົ່ງມາທາງ WhatsApp ເຈົ້າຂອງຮ້ານຍິນດີຊ່ວຍວິເຄາະອາການ ແລະ ແນະນຳຢາທີ່ຖືກຈຸດໃຫ້ໂດຍກົງ.
-                    </p>
-                </div>
-                <button onclick="openConsultWhatsApp()" class="mt-4 w-full py-2.5 px-4 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition">
-                    <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
-                    <span id="consult-box-btn">ກົດສົ່ງຮູບ/ປຶກສາທາງ WhatsApp (020 7889 7043)</span>
-                </button>
-            </div>
-
-            <!-- Box 2: Shipping & Delivery Channels -->
+        <!-- HOW TO ORDER & FAST SHIPPING -->
+        <section class="mt-10 pt-8 border-t border-slate-200 grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <!-- Box 1: Shipping & Delivery Channels -->
             <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                 <div class="flex items-center gap-2.5">
                     <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-base shrink-0">
@@ -595,7 +481,7 @@
                 </ul>
             </div>
 
-            <!-- Box 3: Simple 3-Step Ordering via WhatsApp & Payment -->
+            <!-- Box 2: Simple 3-Step Ordering via WhatsApp & Payment -->
             <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                 <div class="flex items-center gap-2.5">
                     <div class="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-base shrink-0">
@@ -609,7 +495,7 @@
                 <ol class="text-xs text-slate-600 space-y-2 leading-relaxed">
                     <li class="flex items-start gap-2">
                         <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-[11px] shrink-0">1</span>
-                        <span>ເລືອກເບິ່ງຂໍ້ມູນຢາ ຫຼື ຊຸດຢາທີ່ສົນໃຈໃນເວັບໄຊ ແລ້ວກົດປຸ່ມສີຂຽວ <strong>"ສົນໃຈໂຕນີ້ ທັກ WhatsApp"</strong>.</span>
+                        <span>ເລືອກເບິ່ງຂໍ້ມູນຢາທີ່ສົນໃຈໃນເວັບໄຊ ແລ້ວກົດປຸ່ມສີຂຽວ <strong>"ທັກ WhatsApp"</strong> ໃນບັດຢາ.</span>
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-[11px] shrink-0">2</span>
@@ -855,41 +741,20 @@
         </div>
     </div>
 
-    <!-- DESKTOP FLOATING WHATSAPP BUTTON -->
-    <div class="hidden md:flex fixed bottom-5 right-5 z-40 flex-col items-end gap-2.5">
-        <button onclick="openGeneralWhatsApp()" class="group flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-xl shadow-emerald-900/25 border-2 border-white transition-all hover:scale-105">
-            <span class="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center text-xl shrink-0">
-                <i class="fa-brands fa-whatsapp"></i>
-            </span>
-            <div class="text-left leading-tight">
-                <div class="text-[10px] font-semibold text-emerald-100">ສົນໃຈຢາ / ປຶກສາອາການສັດ</div>
-                <div class="text-xs sm:text-sm font-extrabold">ທັກຫາເຈົ້າຂອງຮ້ານ WhatsApp</div>
-            </div>
-        </button>
-    </div>
-
-    <!-- MOBILE STICKY BOTTOM NAVIGATION BAR (Includes Laocart Cart Button!) -->
+    <!-- MOBILE STICKY BOTTOM NAVIGATION BAR -->
     <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
-        <div class="grid grid-cols-5 h-14 px-1">
+        <div class="grid grid-cols-3 h-14 px-2">
             <button id="mnav-drugs" onclick="switchMainTab('drugs')" class="flex flex-col items-center justify-center gap-0.5 text-rose-600 font-bold">
-                <i class="fa-solid fa-store text-sm"></i>
-                <span class="text-[10px]">ໜ້າຮ້ານ</span>
-            </button>
-            <button id="mnav-bundles" onclick="switchMainTab('bundles')" class="flex flex-col items-center justify-center gap-0.5 text-slate-500 font-medium">
-                <i class="fa-solid fa-boxes-packing text-sm"></i>
-                <span class="text-[10px]">ຊຸດຢາ</span>
+                <i class="fa-solid fa-store text-base"></i>
+                <span class="text-[11px]">ໜ້າຮ້ານ</span>
             </button>
             <button id="mnav-diseases" onclick="switchMainTab('diseases')" class="flex flex-col items-center justify-center gap-0.5 text-slate-500 font-medium">
-                <i class="fa-solid fa-stethoscope text-sm"></i>
-                <span class="text-[10px]">34 ໂຣກ</span>
+                <i class="fa-solid fa-stethoscope text-base"></i>
+                <span class="text-[11px]">34 ໂຣກ</span>
             </button>
             <button onclick="openCalculator()" class="flex flex-col items-center justify-center gap-0.5 text-slate-500 font-medium">
-                <i class="fa-solid fa-calculator text-sm text-teal-600"></i>
-                <span class="text-[10px]">ຄິດໄລ່ cc</span>
-            </button>
-            <button onclick="openGeneralWhatsApp()" class="relative flex flex-col items-center justify-center gap-0.5 bg-emerald-600 text-white rounded-xl my-1.5 mx-1 font-extrabold shadow-sm active:scale-95 transition">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span class="text-[9px] leading-none">WhatsApp</span>
+                <i class="fa-solid fa-calculator text-base text-teal-600"></i>
+                <span class="text-[11px]">ຄິດໄລ່ cc</span>
             </button>
         </div>
     </nav>
