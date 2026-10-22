@@ -1,166 +1,59 @@
-# 🐾 Animal Medicine Information System
+# 🐔 คู่มือโรคและพยาธิในไก่สำหรับเกษตรกร (Smart Chicken Farm Health Guide)
 
-A production-ready web application for managing animal medicine information, diseases, inventory, and veterinary queries.
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js 15, React 19, TypeScript, Tailwind CSS |
-| Backend | Python 3.11, FastAPI, Uvicorn |
-| Database | PostgreSQL 15 |
-| ORM | SQLAlchemy 2.x (async) |
-| Migrations | Alembic |
-| File Storage | Local filesystem |
+เว็บไซต์และคู่มืออ้างอิงฉบับสมบูรณ์ สำหรับผู้เริ่มต้นทำฟาร์มไก่ (ไก่เนื้อ, ไก่ไข่, ไก่พื้นเมือง/ไก่ชน) เพื่อตรวจวินิจฉัยอาการเบื้องต้น เข้าใจสาเหตุ รู้วิธีรักษา ยาที่ใช้ และการป้องกันด้วยวัคซีนและระบบความปลอดภัยทางชีวภาพ (Biosecurity)
 
 ---
 
-## Quick Start
+## 🌟 ฟังก์ชันหลักของระบบ
 
-### Prerequisites
-
-- Node.js 18+
-- Python 3.11+ (available at `C:\Temp\PyEnv\python.exe`)
-- PostgreSQL 15 (or Docker)
-
-### 1. Start PostgreSQL
-
-Using Docker:
-```bash
-docker run -d \
-  --name animal_medicine_db \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=animal_medicine_db \
-  -p 5432:5432 \
-  postgres:15-alpine
-```
-
-Or using Docker Compose (recommended):
-```bash
-docker-compose up db -d
-```
-
-### 2. Start the Backend
-
-```bash
-cd backend
-
-# Install dependencies (Windows with custom Python path)
-C:\Temp\PyEnv\python.exe -m pip install -r requirements.txt
-
-# Run database migrations
-C:\Temp\PyEnv\python.exe -m alembic upgrade head
-
-# (Optional) Seed sample data
-C:\Temp\PyEnv\python.exe seed.py
-
-# Start the API server
-C:\Temp\PyEnv\python.exe -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-API will be available at: http://localhost:8000
-Swagger UI: http://localhost:8000/docs
-
-### 3. Start the Frontend
-
-```bash
-cd frontend
-
-npm install
-npm run dev
-```
-
-Frontend will be available at: http://localhost:3000
+1. **คลังข้อมูลโรคและพยาธิ (Disease Directory)**:
+   - **โรคติดเชื้อไวรัส**: โรคนิวคาสเซิล (ND), หลอดลมอักเสบติดต่อ (IB), กัมโบโร (IBD), ฝีดาษไก่ (Fowl Pox), โรคมาร์เร็กซ์ (MD), ไข้หวัดนก (AI)
+   - **โรคติดเชื้อแบคทีเรีย**: หวัดหน้าบวม (Infectious Coryza), ซีอาร์ดี/หวัดเรื้อรัง (CRD/Mycoplasma), อหิวาต์ไก่ (Fowl Cholera), ลำไส้อักเสบเนื้อตาย (Necrotic Enteritis), ขี้ขาวลูกไก่ (Pullorum)
+   - **โรคจากโปรโตซัว/บิด**: โรคบิดในไก่ (Coccidiosis / Eimeria) ที่พบบ่อยที่สุด, โรคแบล็คเฮด (Blackhead / Histomoniasis)
+   - **พยาธิภายใน**: พยาธิตัวกลม (Roundworms), พยาธิตัวแบน/ตืดไก่ (Tapeworms), พยาธิเส้นด้าย (Capillaria)
+   - **ปรสิตภายนอก**: ไรแดงไก่ (Red Mites), ไรเกล็ดขา (Scaly leg mites), เหาไก่/ไรขน (Poultry lice)
+2. **ระบบคัดกรองโรคตามอาการ (Smart Symptom Checker)**:
+   - ติ๊กเลือกอาการที่พบจริงหน้างาน เช่น ขี้เลือด, หน้าบวม, คอบิด, หงอนซีด, อกแหลม
+   - ระบบจะประมวลผลจับคู่เปอร์เซ็นต์ความเป็นไปได้ของโรคทันที
+3. **ตารางโปรแกรมวัคซีนมาตรฐาน (Vaccination Schedule)**:
+   - แยกตามประเภท: ไก่เนื้อ (Broiler), ไก่ไข่ (Layer), ไก่พื้นเมือง/ไก่ชน
+   - ระบุช่วงอายุ, ชนิดวัคซีน, วิธีการให้ (หยอดตา, แทงปีก, ผสมน้ำดื่ม, ฉีด)
+4. **คู่มือยาและระยะหยุดยา (Withdrawal Period Guide)**:
+   - รวมยาจำเป็นประจำฟาร์ม (ยาแก้บิด Toltrazuril/Amprolium, ยาฆ่าเชื้อ Tylosin/Doxycycline, ยาถ่ายพยาธิ Levamisole/Ivermectin, ยากำจัดไรแดง Fluralaner)
+   - ข้อควรระวังและระยะหยุดยาเพื่อความปลอดภัยของผู้บริโภค
+   - สมุนไพรทางเลือกเสริมภูมิคุ้มกัน (ฟ้าทะลายโจร, ขมิ้นชัน, ใบฝรั่ง, บอระเพ็ด)
+5. **เครื่องคำนวณปริมาณน้ำและยา (Water & Dosage Calculator)**:
+   - คำนวณปริมาณน้ำดื่มของฝูงไก่ตามอายุ สภาพอากาศ และจำนวนตัว
+   - คำนวณปริมาณยาที่ต้องผสมลงในถังน้ำอย่างแม่นยำ ป้องกันการให้ยาน้อยหรือมากเกินไป
+6. **เช็กลิสต์สุขอนามัยฟาร์ม (Biosecurity Checklist)**:
+   - กฎเหล็ก 7 ข้อ ป้องกันโรคระบาดเข้าฟาร์ม และขั้นตอนพักเล้า 5 ขั้นตอน (All-in All-out)
 
 ---
 
-## Features
+## 🚀 วิธีเปิดใช้งานเว็บไซต์
 
-| Feature | Description |
-|---|---|
-| 📊 **Dashboard** | Stats overview, recent medicines, inventory alerts |
-| 💊 **Medicines** | Full CRUD with image upload, filtering, sorting |
-| 🦠 **Diseases** | Full CRUD with recommended medicine linking |
-| 🐾 **Animal Types** | Manage 10 default animal categories |
-| 🔍 **Search** | Full-text search across medicines and diseases |
-| 🤖 **AI Assistant** | Symptom-based disease + medicine queries (local DB only) |
-| 📦 **Inventory** | Low stock and expiration alerts |
-| 🖼️ **Image Upload** | Drag-and-drop, multiple images, preview |
+### วิธีที่ 1: ดับเบิลคลิกเปิดไฟล์ได้ทันที (ไม่ต้องติดตั้งโปรแกรมใดๆ เพิ่ม)
+- เปิดโฟลเดอร์ `d:\PJ\ยา`
+- ดับเบิลคลิกที่ไฟล์ **`index.html`** เว็บไซต์จะเปิดขึ้นมาในเบราว์เซอร์ (Google Chrome, Microsoft Edge, Firefox) ใช้งานได้ทันที
 
----
-
-## Project Structure
-
-```
-animal-medicine-system/
-├── frontend/          # Next.js app
-│   ├── src/
-│   │   ├── app/       # Pages (App Router)
-│   │   ├── components/ # Reusable components
-│   │   ├── lib/       # API client, utilities
-│   │   └── types/     # TypeScript types
-│   └── ...
-├── backend/           # FastAPI app
-│   ├── app/
-│   │   ├── api/       # Route handlers
-│   │   ├── core/      # Configuration
-│   │   ├── crud/      # Database operations
-│   │   ├── db/        # Database setup
-│   │   ├── models/    # SQLAlchemy models
-│   │   ├── schemas/   # Pydantic schemas
-│   │   └── services/  # Business logic
-│   ├── alembic/       # Migrations
-│   ├── uploads/       # Image storage
-│   └── seed.py        # Sample data
-├── docker-compose.yml
-└── README.md
-```
+### วิธีที่ 2: รันเซิร์ฟเวอร์ในเครื่อง / ใช้งานผ่านมือถือในฟาร์ม (ผ่าน Wi-Fi เดียวกัน)
+1. เปิด Command Prompt หรือ PowerShell ในโฟลเดอร์นี้
+2. พิมพ์คำสั่ง:
+   ```bash
+   node server.js
+   ```
+3. เปิดเบราว์เซอร์:
+   - บนคอมพิวเตอร์: เข้า `http://localhost:3000`
+   - บนโทรศัพท์มือถือในฟาร์ม: เข้าตาม IP ที่แสดงบนหน้าจอ เช่น `http://192.168.x.x:3000`
 
 ---
 
-## API Endpoints
+## 📁 โครงสร้างไฟล์ในโฟลเดอร์
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/v1/dashboard/stats` | Dashboard statistics |
-| GET | `/api/v1/medicines/` | List medicines (paginated) |
-| POST | `/api/v1/medicines/` | Create medicine |
-| GET | `/api/v1/medicines/{id}` | Get medicine detail |
-| PATCH | `/api/v1/medicines/{id}` | Update medicine |
-| DELETE | `/api/v1/medicines/{id}` | Delete medicine |
-| POST | `/api/v1/medicines/{id}/images` | Upload image |
-| GET | `/api/v1/diseases/` | List diseases |
-| POST | `/api/v1/diseases/` | Create disease |
-| GET | `/api/v1/search/` | Full-text search |
-| POST | `/api/v1/ai/query` | AI assistant query |
-| GET | `/api/v1/inventory/report` | Inventory report |
-
-Full API documentation at: http://localhost:8000/docs
-
----
-
-## Environment Variables
-
-### Backend (`.env`)
-```env
-DATABASE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/animal_medicine_db
-UPLOAD_DIR=uploads
-LOW_STOCK_THRESHOLD=10
-EXPIRY_ALERT_DAYS=30
 ```
-
-### Frontend (`.env.local`)
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
+d:\PJ\ยา/
+├── index.html       # หน้าเว็บหลัก UI โมเดิร์น Responsive รองรับมือถือ/แท็บเล็ต/คอมพิวเตอร์
+├── app.js           # ฐานข้อมูลโรค พยาธิ ยา วัคซีน และระบบคำนวณแบบโต้ตอบ
+├── server.js        # เซิร์ฟเวอร์แบบเบาพิเศษ (Node.js ในตัว ไม่ต้องลง npm)
+└── README.md        # เอกสารคู่มือการใช้งานและสรุปข้อมูล
 ```
-
----
-
-## Default Animal Types
-
-Chicken, Fighting Chicken, Cattle, Pig, Goat, Sheep, Dog, Cat, Fish, Bird
-
-## Default Medicine Categories
-
-Antibiotic, Antiparasitic, Antiviral, Vaccine, Anti-inflammatory, Vitamin & Supplement, Antifungal, Disinfectant
