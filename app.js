@@ -3876,13 +3876,9 @@ function renderBundlesGrid() {
                     <span class="text-xs font-semibold text-slate-500">ລາຄາປະມານການຍົກຊຸດ:</span>
                     <span class="text-base font-extrabold text-rose-600">${b.totalPrice}</span>
                 </div>
-                <button onclick="addBundleToCart('${b.id}')" class="w-full py-2.5 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-sm transition">
-                    <i class="fa-solid fa-cart-plus text-sm"></i>
-                    <span>ເພີ່ມຊຸດຢານີ້ໃສ່ກະຕ່າ</span>
-                </button>
-                <button onclick="openWhatsAppBundle('${b.id}')" class="w-full py-2 px-4 rounded-xl bg-emerald-50 hover:bg-emerald-600 text-emerald-800 hover:text-white border border-emerald-200 text-xs font-bold flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-whatsapp text-sm"></i>
-                    <span>ປຶກສາອາການ / ສັ່ງທາງ WhatsApp</span>
+                <button onclick="openWhatsAppBundle('${b.id}')" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-sm transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>ສົນໃຈຊຸດນີ້ ທັກ WhatsApp</span>
                 </button>
             </div>
         `;
@@ -4536,14 +4532,10 @@ function renderDrugGrid() {
             sizePillsHtml = `<span class="inline-block mt-1 text-[10px] font-semibold text-slate-400">ຂະໜາດ: ${chosenSizeObj.size}</span>`;
         }
 
-        // Laocart Primary Button: "ເພີ່ມໃສ່ກະຕ່າ" (single size) or "ເລືອກຕົວເລືອກ" / "ເພີ່ມໃສ່ກະຕ່າ"
-        const hasMultipleSizes = drug.sizes && drug.sizes.length > 1;
-        const primaryBtnHtml = hasMultipleSizes
-            ? `<button onclick="openDetailModal('${drug.id}')" class="w-full py-2 sm:py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold transition shadow-sm flex items-center justify-center gap-1.5">
-                    <span>ເລືອກຕົວເລືອກ</span>
-               </button>`
-            : `<button onclick="addToCartQuick('${drug.id}')" class="w-full py-2 sm:py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold transition shadow-sm flex items-center justify-center gap-1.5">
-                    <span>ເພີ່ມໃສ່ກະຕ່າ</span>
+        // Primary Button: ທັກ WhatsApp (ສົ່ງຊື່ຢາ + ຂະໜາດທີ່ເລືອກ ໄປຫາຮ້ານອັດຕະໂນມັດ)
+        const primaryBtnHtml = `<button onclick="openWhatsAppDrug('${drug.id}')" class="w-full py-2 sm:py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold transition shadow-sm flex items-center justify-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>ທັກ WhatsApp</span>
                </button>`;
 
         card.innerHTML = `
@@ -4685,7 +4677,6 @@ function openDetailModal(drugId) {
             <span class="text-xl sm:text-2xl font-extrabold text-rose-600">${chosenSize.price}</span>
             <span class="text-xs sm:text-sm text-slate-400 line-through">${formatKip(origPriceNum)}</span>
             <span class="px-2 py-0.5 rounded-md bg-rose-600 text-white text-xs font-extrabold">-5%</span>
-            <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-xs font-bold">ລາຄາພິເສດ</span>
         `;
     }
 

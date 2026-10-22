@@ -62,14 +62,15 @@
                         <span id="calc-btn-label" class="hidden md:inline">ຄິດໄລ່ໂດສຢາ (cc)</span>
                         <span class="md:hidden">ຄິດໄລ່ cc</span>
                     </button>
-                    <div class="inline-flex rounded-xl border border-slate-200 bg-slate-100 p-0.5 text-[11px] sm:text-xs font-bold">
-                        <button id="lang-lo" class="px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-white text-slate-900 shadow-sm transition">ລາວ</button>
-                        <button id="lang-th" class="px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">ไทย</button>
+                    <!-- Language toggle removed (Lao only) - hidden for JS compatibility -->
+                    <div class="hidden">
+                        <button id="lang-lo"></button>
+                        <button id="lang-th"></button>
                     </div>
-                    <!-- Laocart Style Shopping Cart Icon with Badge -->
-                    <button onclick="openCartModal()" id="header-cart-btn" class="relative inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition active:scale-95" title="ກະຕ່າສິນຄ້າ">
-                        <i class="fa-solid fa-cart-shopping text-base sm:text-lg"></i>
-                        <span id="cart-count-badge" class="hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-rose-600 text-white text-[10px] font-extrabold flex items-center justify-center shadow-sm border-2 border-white">0</span>
+                    <button onclick="openGeneralWhatsApp()" class="inline-flex items-center gap-1.5 px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 transition shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span class="hidden sm:inline">ທັກ WhatsApp</span>
+                        <span class="sm:hidden">ທັກຮ້ານ</span>
                     </button>
                 </div>
             </div>
@@ -103,13 +104,13 @@
                     <div class="max-w-2xl space-y-1.5 sm:space-y-2">
                         <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/30 border border-rose-300/40 text-rose-100 text-[10px] sm:text-xs font-bold">
                             <i class="fa-solid fa-bolt text-amber-300"></i>
-                            <span id="hero-badge">ສາມາດກົດສັ່ງຊື້ສິນຄ້າເອງຜ່ານເວັບໄດ້ແລ້ວ • ບໍ່ຕ້ອງຖ້າແມ່ຄ້າຕອບແຊັດ!</span>
+                            <span id="hero-badge">ສົນໃຈຢາໂຕໃດ ກົດທັກ WhatsApp ລົມກັບເຈົ້າຂອງຮ້ານໂດຍກົງ!</span>
                         </div>
                         <h2 id="hero-title" class="text-base sm:text-2xl font-extrabold tracking-tight leading-snug">
                             ຮ້ານຂາຍຢາສັດ ນິຍົມ ການກະເສດ — ສິນຄ້າລາຄາໂຮງງານ ພ້ອມຄູ່ມືປິ່ນປົວຄົບວົງຈອນ
                         </h2>
                         <p id="hero-desc" class="text-[11px] sm:text-xs text-slate-200 leading-relaxed">
-                            ກົດເລືອກຢາໃສ່ກະຕ່າ ➔ กรอกຊື່-ທີ່ຢູ່ ➔ ເລືອກຂົນສົ່ງ (ອະນຸສິດ / ມີໄຊ / ຮຸ່ງອາລຸນ) ➔ ສະແກນ QR BCEL One ຮັບບິນເຄື່ອງເລີຍ!
+                            ເບິ່ງຂໍ້ມູນຢາ, ລາຄາ, ວິທີໃຊ້ ➔ ກົດປຸ່ມ <strong class="text-emerald-300">"ທັກ WhatsApp"</strong> ➔ ເຈົ້າຂອງຮ້ານຕອບ & ຈັດສົ່ງທົ່ວປະເທດ (ອະນຸສິດ / ມີໄຊ / ຮຸ່ງອາລຸນ)
                         </p>
                     </div>
 
@@ -127,9 +128,9 @@
                             <div class="text-sm sm:text-xl font-extrabold text-emerald-300" id="stat-disease-count">34 ໂຣກ</div>
                             <div id="stat-disease-label" class="text-[9px] sm:text-[11px] text-slate-200 font-medium mt-0.5 truncate">ຄູ່ມືປິ່ນປົວ</div>
                         </div>
-                        <div onclick="openCartModal()" class="cursor-pointer bg-rose-500/30 hover:bg-rose-500/40 active:scale-95 border border-rose-400/50 rounded-xl p-2 sm:p-3 text-center transition">
-                            <div class="text-sm sm:text-xl font-extrabold text-white"><i class="fa-solid fa-cart-shopping"></i></div>
-                            <div class="text-[9px] sm:text-[11px] text-rose-100 font-medium mt-0.5 truncate">ກະຕ່າສິນຄ້າ</div>
+                        <div onclick="openGeneralWhatsApp()" class="cursor-pointer bg-emerald-500/30 hover:bg-emerald-500/40 active:scale-95 border border-emerald-400/50 rounded-xl p-2 sm:p-3 text-center transition">
+                            <div class="text-sm sm:text-xl font-extrabold text-white"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="text-[9px] sm:text-[11px] text-emerald-100 font-medium mt-0.5 truncate">ທັກ WhatsApp</div>
                         </div>
                     </div>
                 </div>
@@ -180,8 +181,8 @@
                 </button>
             </div>
             <div class="hidden md:flex text-xs text-slate-500 items-center gap-1.5">
-                <i class="fa-solid fa-cart-shopping text-rose-600 text-sm"></i>
-                <span id="header-helper-text">ກົດ <strong>"ເພີ່ມໃສ່ກະຕ່າ"</strong> ເພື່ອສັ່ງຊື້ດ້ວຍຕົວເອງ ຫຼື ກົດປຶກສາອາການທາງ WhatsApp</span>
+                <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+                <span id="header-helper-text">ສົນໃຈຢາໂຕໃດ ກົດ <strong>"ທັກ WhatsApp"</strong> ເພື່ອສອບຖາມ & ສັ່ງຊື້ກັບເຈົ້າຂອງຮ້ານໂດຍກົງ</span>
             </div>
         </div>
 
@@ -752,10 +753,7 @@
                     <span>ກັບໄປໜ້າຮ້ານ</span>
                 </button>
                 <span class="font-extrabold text-sm text-rose-700">ນິຍົມ ການກະເສດ</span>
-                <button onclick="closeDetailModal(); openCartModal();" class="relative inline-flex items-center justify-center w-9 h-9 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition">
-                    <i class="fa-solid fa-cart-shopping text-sm"></i>
-                    <span id="detail-cart-badge" class="hidden absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-rose-600 text-white text-[10px] font-extrabold flex items-center justify-center border border-white">0</span>
-                </button>
+                <span class="w-9"></span>
             </div>
 
             <div class="overflow-y-auto custom-scrollbar flex-grow">
@@ -792,38 +790,18 @@
                         </div>
                     </div>
 
-                    <!-- Quantity Selector Row (Exact match to video 00:16: ຈຳນວນ [ -  1  + ]) -->
-                    <div class="flex items-center gap-4 pt-1">
-                        <span class="text-sm font-bold text-slate-700">ຈຳນວນ</span>
-                        <div class="inline-flex items-center rounded-xl border border-slate-300 bg-white overflow-hidden">
-                            <button type="button" onclick="changeDetailQty(-1)" class="w-10 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-100 font-extrabold text-base transition">−</button>
-                            <span id="detail-qty-val" class="w-12 text-center text-sm font-extrabold text-slate-900 select-none">1</span>
-                            <button type="button" onclick="changeDetailQty(1)" class="w-10 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-100 font-extrabold text-base transition">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Primary "ເພີ່ມໃສ່ກະຕ່າ" Button (Exact match to video 00:16-00:18) -->
-                    <button id="detail-add-cart-btn" onclick="addFromDetailToCart()" class="w-full py-3.5 px-5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white text-sm sm:text-base font-extrabold shadow-md shadow-rose-600/20 flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>ເພີ່ມໃສ່ກະຕ່າ</span>
+                    <!-- Primary WhatsApp Order Button -->
+                    <button id="detail-wa-btn" class="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-sm sm:text-base font-extrabold shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>ສົນໃຈໂຕນີ້ ທັກ WhatsApp</span>
                     </button>
 
-                    <!-- Share, Dosage Calc & WhatsApp Row -->
-                    <div class="flex items-center justify-between gap-2 pt-1 text-xs">
-                        <button type="button" onclick="shareCurrentDrug()" class="inline-flex items-center gap-1.5 text-slate-600 hover:text-rose-600 font-semibold py-1">
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span>ແບ່ງປັນ</span>
+                    <!-- Dosage Calc -->
+                    <div class="flex items-center justify-end gap-2 pt-1 text-xs">
+                        <button id="detail-use-calc-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 font-bold transition">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>ຄິດໄລ່ cc</span>
                         </button>
-                        <div class="flex items-center gap-2">
-                            <button id="detail-use-calc-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 font-bold transition">
-                                <i class="fa-solid fa-calculator"></i>
-                                <span>ຄິດໄລ່ cc</span>
-                            </button>
-                            <button id="detail-wa-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold transition">
-                                <i class="fa-brands fa-whatsapp text-sm"></i>
-                                <span>ຖາມທາງ WhatsApp</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
 
@@ -899,32 +877,7 @@
         </div>
     </div>
 
-    <!-- ============================================================================ -->
-    <!-- LAOCART 3-STEP SELF-CHECKOUT MODAL (Exact Match to Video 00:20 - 00:33!)     -->
-    <!-- ============================================================================ -->
-    <div id="cart-checkout-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 hidden">
-        <div class="bg-slate-50 rounded-t-3xl sm:rounded-2xl shadow-2xl max-w-xl w-full h-[94vh] sm:h-auto sm:max-h-[92vh] flex flex-col border border-slate-200 overflow-hidden">
-            <!-- Top Store Header inside Checkout -->
-            <div class="px-4 py-3.5 bg-white border-b border-slate-200 flex items-center justify-between shrink-0">
-                <button onclick="closeCartModal()" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-rose-600 transition">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>ກັບໄປໜ້າຮ້ານ</span>
-                </button>
-                <span class="font-extrabold text-sm sm:text-base text-rose-700">ນິຍົມ ການກະເສດ</span>
-                <div class="relative inline-flex items-center justify-center w-9 h-9 rounded-xl bg-rose-50 text-rose-700">
-                    <i class="fa-solid fa-cart-shopping text-sm"></i>
-                    <span id="checkout-header-badge" class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-rose-600 text-white text-[10px] font-extrabold flex items-center justify-center border border-white">0</span>
-                </div>
-            </div>
-
-            <!-- Dynamic Checkout Body (Renders Step 0 Cart, Step 1 Address, Step 2 Courier, Step 3 Confirm & QR, Step 4 Done) -->
-            <div id="cart-checkout-body" class="p-4 sm:p-6 overflow-y-auto custom-scrollbar flex-grow space-y-4">
-                <!-- Populated dynamically by app.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification for "ເພີ່ມໃສ່ກະຕ່າແລ້ວ" -->
+    <!-- Toast Notification -->
     <div id="cart-toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-[70] pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
         <div class="bg-slate-900/95 text-white px-4 py-2.5 rounded-2xl shadow-xl border border-white/15 flex items-center gap-2.5 text-xs sm:text-sm font-bold">
             <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
@@ -943,23 +896,15 @@
         </div>
     </div>
 
-    <!-- DESKTOP FLOATING CART & WHATSAPP BUTTONS -->
+    <!-- DESKTOP FLOATING WHATSAPP BUTTON -->
     <div class="hidden md:flex fixed bottom-5 right-5 z-40 flex-col items-end gap-2.5">
-        <button onclick="openCartModal()" class="group flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white shadow-xl shadow-rose-900/25 border-2 border-white transition-all hover:scale-105">
-            <span class="relative w-8 h-8 rounded-full bg-white text-rose-600 flex items-center justify-center text-base shrink-0">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </span>
-            <div class="text-left leading-tight">
-                <div class="text-[10px] font-semibold text-rose-100">ສັ່ງຊື້ເອງຜ່ານເວັບ</div>
-                <div class="text-xs sm:text-sm font-extrabold">ກະຕ່າສິນຄ້າ (<span id="floating-cart-count">0</span>)</div>
-            </div>
-        </button>
-        <button onclick="openConsultWhatsApp()" class="group flex items-center gap-2.5 pl-3.5 pr-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg border-2 border-white transition-all hover:scale-105">
-            <span class="w-7 h-7 rounded-full bg-white text-emerald-600 flex items-center justify-center text-base shrink-0">
+        <button onclick="openGeneralWhatsApp()" class="group flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-xl shadow-emerald-900/25 border-2 border-white transition-all hover:scale-105">
+            <span class="w-8 h-8 rounded-full bg-white text-emerald-600 flex items-center justify-center text-xl shrink-0">
                 <i class="fa-brands fa-whatsapp"></i>
             </span>
             <div class="text-left leading-tight">
-                <div class="text-[11px] font-extrabold">ປຶກສາອາການ WhatsApp</div>
+                <div class="text-[10px] font-semibold text-emerald-100">ສົນໃຈຢາ / ປຶກສາອາການສັດ</div>
+                <div class="text-xs sm:text-sm font-extrabold">ທັກຫາເຈົ້າຂອງຮ້ານ WhatsApp</div>
             </div>
         </button>
     </div>
@@ -983,9 +928,9 @@
                 <i class="fa-solid fa-calculator text-sm text-teal-600"></i>
                 <span class="text-[10px]">ຄິດໄລ່ cc</span>
             </button>
-            <button onclick="openCartModal()" class="relative flex flex-col items-center justify-center gap-0.5 bg-rose-600 text-white rounded-xl my-1.5 mx-1 font-extrabold shadow-sm active:scale-95 transition">
-                <i class="fa-solid fa-cart-shopping text-sm"></i>
-                <span class="text-[9px] leading-none">ກະຕ່າ (<span id="mnav-cart-count">0</span>)</span>
+            <button onclick="openGeneralWhatsApp()" class="relative flex flex-col items-center justify-center gap-0.5 bg-emerald-600 text-white rounded-xl my-1.5 mx-1 font-extrabold shadow-sm active:scale-95 transition">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span class="text-[9px] leading-none">WhatsApp</span>
             </button>
         </div>
     </nav>
