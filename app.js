@@ -4559,19 +4559,9 @@ function renderDrugGrid() {
                 </div>
             </div>
 
-            <!-- Primary Action + Quick Detail/Dose Info -->
-            <div class="px-2.5 pb-2.5 pt-0.5 sm:px-4 sm:pb-4 flex flex-col gap-1.5">
+            <!-- Primary Action (Only WhatsApp on card) -->
+            <div class="px-2.5 pb-2.5 pt-1 sm:px-4 sm:pb-4">
                 ${primaryBtnHtml}
-                <div class="flex items-center justify-between gap-1 text-[10px] sm:text-xs pt-0.5">
-                    <button onclick="openDetailModal('${drug.id}')" class="text-slate-500 hover:text-teal-700 font-semibold flex items-center gap-1 truncate">
-                        <i class="fa-solid fa-circle-info text-teal-600"></i>
-                        <span>ວິທີໃຊ້ & ລາຍລະອຽດ</span>
-                    </button>
-                    <button onclick="openCalculator('${drug.id}')" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-700 font-bold border border-teal-200 transition shrink-0">
-                        <i class="fa-solid fa-calculator text-[10px]"></i>
-                        <span>ຄິດໄລ່ cc</span>
-                    </button>
-                </div>
             </div>
         `;
 
