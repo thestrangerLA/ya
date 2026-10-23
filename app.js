@@ -4534,59 +4534,32 @@ function renderDiseaseGrid() {
             }
         }
 
-        // ອາການເບື້ອງຕົ້ນ 2 ຂໍ້ ສຳລັບສະແດງໃນບັດ
-        const previewList = symptoms.slice(0, 2).map(s => {
-            const clean = s.replace(/<[^>]*>/g, '').trim();
-            return `<li class="line-clamp-2 leading-relaxed">• ${clean}</li>`;
-        }).join('');
-
-        const moreStagesCount = Math.max(0, symptoms.length - 2);
-        const moreNotice = moreStagesCount > 0 
-            ? `<div class="text-[10px] text-teal-700 font-bold mt-1 flex items-center gap-1"><i class="fa-solid fa-layer-group"></i> <span>+ ອີກ ${moreStagesCount} ໄລຍະອາການ ແລະ ວິທີປິ່ນປົວ</span></div>`
-            : '';
-
         card.innerHTML = `
-            <div class="space-y-3">
-                <div class="flex items-start justify-between gap-2 border-b border-slate-100 pb-2.5">
+            <div>
+                <div class="flex items-start justify-between gap-2 mb-2">
                     <div class="min-w-0">
                         <div class="flex flex-wrap items-center gap-1.5 text-xs font-semibold text-teal-700 mb-1">
                             <span class="inline-flex items-center gap-1"><i class="fa-solid fa-paw"></i> ${speciesLabel}</span>
                             ${poultryCatBadge}
                             ${symptomMatchBadge}
                         </div>
-                        <h3 class="font-black text-slate-900 text-base leading-snug group-hover:text-teal-700 transition">${title}</h3>
+                        <h3 class="font-black text-slate-900 text-sm sm:text-base leading-snug group-hover:text-teal-700 transition">${title}</h3>
                         <p class="text-[11px] text-slate-400 mt-0.5 truncate"><i class="fa-solid fa-virus text-rose-400 mr-1 text-[10px]"></i>${d.cause}</p>
                     </div>
                     ${sevBadge}
                 </div>
-
-                <div class="bg-slate-50/80 p-3 rounded-xl border border-slate-100">
-                    <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 flex items-center gap-1">
-                        <i class="fa-solid fa-magnifying-glass-plus text-rose-500 text-[10px]"></i>
-                        <span>${currentLang === 'lo' ? 'ອາການຫຼັກສັງເກດເບື້ອງຕົ້ນ:' : 'อาการสำคัญเบื้องต้น:'}</span>
-                    </h4>
-                    <ul class="text-xs text-slate-600 space-y-1">
-                        ${previewList}
-                    </ul>
-                    ${moreNotice}
-                </div>
             </div>
 
-            <div class="mt-3.5 pt-2.5 border-t border-slate-100 space-y-2">
-                <div class="flex items-center justify-between text-xs text-slate-500">
-                    <span class="text-[11px] font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-capsules text-teal-600"></i>
-                        <span>ຢາແນະນຳ ${d.recommendedDrugs.length} ຊະນິດ</span>
-                    </span>
-                    <span class="text-[11px] text-teal-600 font-bold group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                        ເບິ່ງລາຍລະອຽດ <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </span>
-                </div>
-
-                <button onclick="event.stopPropagation(); openDiseaseModal('${d.id}')" class="w-full py-2 px-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-xs flex items-center justify-center gap-1.5 transition">
-                    <i class="fa-solid fa-book-medical"></i>
-                    <span>${currentLang === 'lo' ? 'ເປີດເບິ່ງອາການ 5 ໄລຍະ & ຄູ່ມືປິ່ນປົວ' : 'เปิดดูอาการ 5 ระยะ & คู่มือรักษา'}</span>
-                </button>
+            <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                <span class="text-[11px] font-bold text-slate-500 flex items-center gap-1">
+                    <i class="fa-solid fa-capsules text-teal-600"></i>
+                    <span>ຢາແນະນຳ ${d.recommendedDrugs.length} ຊະນິດ</span>
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-teal-50 group-hover:bg-teal-600 text-teal-700 group-hover:text-white border border-teal-200 group-hover:border-teal-600 font-bold text-[11px] transition">
+                    <i class="fa-solid fa-book-medical text-[10px]"></i>
+                    <span>${currentLang === 'lo' ? 'ເປີດເບິ່ງ' : 'เปิดดู'}</span>
+                    <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                </span>
             </div>
         `;
 
